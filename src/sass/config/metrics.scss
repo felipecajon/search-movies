@@ -1,0 +1,23 @@
+$min-xs: 0;
+$min-sm: 576;
+$min-md: 768;
+$min-lg: 992;
+$min-xl: 1200;
+
+$start-xs: $min-sm - 1;
+$start-sm: $min-md - 1;
+$start-md: $min-lg - 1;
+$start-lg: $min-xl - 1;
+
+:export {
+    min_xs: $min-xs;
+    min_sm: $min-sm;
+    min_md: $min-md;
+    min_lg: $min-lg;
+    min_xl: $min-xl;
+
+    start_xs: $start-xs;
+    start_sm: $start-sm;
+    start_md: $start-md;
+    start_lg: $start-lg;
+}

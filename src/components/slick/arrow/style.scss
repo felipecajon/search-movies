@@ -1,0 +1,33 @@
+.arrow-default {
+    position: absolute;
+    top: 50%;
+    z-index: 1;
+    
+    transform: translate(0,-50%);
+
+    background: #fff;
+    padding: 12px 0;
+    cursor: pointer;
+
+    &.left {
+        left: 12px;
+
+        -webkit-border-top-right-radius: 2px;
+        -webkit-border-bottom-right-radius: 2px;
+        -moz-border-radius-topright: 2px;
+        -moz-border-radius-bottomright: 2px;
+        border-top-right-radius: 2px;
+        border-bottom-right-radius: 2px;
+    }
+
+    &.right {
+        right: 12px;
+        
+        -webkit-border-top-left-radius: 2px;
+        -webkit-border-bottom-left-radius: 2px;
+        -moz-border-radius-topleft: 2px;
+        -moz-border-radius-bottomleft: 2px;
+        border-top-left-radius: 2px;
+        border-bottom-left-radius: 2px;
+    }
+}

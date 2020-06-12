@@ -1,0 +1,48 @@
+@import './helpers/mixins.scss';
+
+.App {
+    $heightFooter: 40px;
+    $gutterFooter:  40px;
+
+    min-height: 100vh;
+    position: relative;
+    padding-bottom: calc(#{$heightFooter} + #{$gutterFooter});
+    text-align: left;
+}
+
+html {
+    @include scrollbar($color-03, 8px)
+}
+
+body {
+    font-size: $fs-04;
+    font-family: $font-01;
+    color: $color-02;
+    font-weight: 400;
+    line-height: 100%;
+
+    margin: 0;
+    padding: 0;
+
+    position: relative;
+   
+}
+
+a {
+    text-decoration: none;
+    color: $color-03;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+p {
+    margin: 0;
+    padding: 0;
+    line-height: 160%;
+}
+
+ul {
+    padding-left: 0;
+}

@@ -1,0 +1,35 @@
+@import '~toasted-notes/src/styles.css';
+@import '../../sass/config/colors.scss';
+
+.custom-toaster {
+    position: relative;
+
+    padding: 16px 34px 16px 20px;
+    color: $color-01;
+    border-radius: 5px;
+    min-width: 110px;
+    background-color: $color-04;
+
+    p {
+        color: $color-03;
+    }
+
+    .close-toaster {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        cursor: pointer;
+        margin-left: 12px;
+        margin-bottom: 1px;
+    }
+
+    .mark {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 5px;
+        height: 100%;
+
+        background-color: $color-01;
+    }
+}

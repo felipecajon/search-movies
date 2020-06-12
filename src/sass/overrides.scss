@@ -1,0 +1,11 @@
+$theme-colors: (
+    "primary": $color-01,
+);
+
+.btn-outline-primary {
+    &:hover {
+        svg {
+            fill: $color-04;
+        }
+    }
+}

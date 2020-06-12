@@ -1,0 +1,24 @@
+$color-01: #9966ff;
+$color-01-light: #9966ff;
+
+$color-02: #180a33;
+$color-03: #141f35;
+$color-04: #FFFFFF;
+$color-05: #dddddd;
+
+$color-success: #25C567;
+$color-danger: #FC264C;
+$color-warning: #F9B402;
+$color-info: #004085;
+
+:export {
+    color_01: $color-01;
+    color_01_light: $color-01-light;
+    color_02: $color-02;
+    color_03: $color-03;
+    color_04: $color-04;
+    color_success: $color-success;
+    color_danger: $color-danger;
+    color_warning: $color-warning;
+    color_info: $color-info;
+}

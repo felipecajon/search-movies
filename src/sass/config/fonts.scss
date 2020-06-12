@@ -1,0 +1,32 @@
+$font-01: 'Metropolis-Regular', Arial, Helvetica, sans-serif;
+$font-02: 'Metropolis-SemiBold', Arial, Helvetica, sans-serif;
+
+$font-03: 'Gotham-Bold', sans-serif;
+$font-04: 'Gotham-Book', sans-serif;
+$font-05: 'Gotham-Medium', sans-serif;
+
+$fs-01: 10px;
+$fs-02: 12px;
+$fs-03: 14px;
+$fs-04: 16px;
+$fs-05: 20px;
+$fs-06: 24px;
+$fs-07: 32px;
+$fs-08: 40px;
+
+:export {
+    font_01: $font-01;
+    font_02: $font-02;
+    font_03: $font-03;
+    font_04: $font-04;
+    font_05: $font-05;
+
+    fs_01: $fs-01;
+    fs_02: $fs-02;
+    fs_03: $fs-03;
+    fs_04: $fs-04;
+    fs_05: $fs-05;
+    fs_06: $fs-06;
+    fs_07: $fs-07;
+    fs_08: $fs-08;
+}

@@ -1,0 +1,81 @@
+.h {
+    &-center {
+        justify-content: center;
+    }
+    
+    &-space-between {
+        justify-content: space-between;
+    }
+    
+    &-space-around {
+        justify-content: space-around;
+    }
+    
+    &-start {
+        justify-content: flex-start;
+    }
+    
+    &-end {
+        justify-content: flex-end;
+    }
+}
+
+.v {
+    &-center {
+        align-items: center;
+    }
+    
+    &-start {
+        align-items: flex-start;
+    }
+    
+    &-end {
+        align-items: flex-end;
+    }
+}
+
+.f {
+    &-1 {
+        flex: 1;
+    }
+    
+    &w {
+        &-w {
+            flex-wrap: wrap;
+        }
+    }
+}
+
+.hidden {
+    display: none !important;
+    
+    &-xs {
+        @media all and (max-width: #{$min-sm + 'px'}) {
+            display: none !important;
+        }
+    }
+    
+    &-sm {
+        @media all and (min-width: #{$min-sm + 'px'}) and (max-width: #{$start-sm + 'px'}) {
+            display: none !important;
+        }
+    }
+    
+    &-md {
+        @media all and (min-width: #{$min-md + 'px'}) and (max-width: #{$start-md + 'px'}) {
+            display: none !important;
+        }
+    }
+    
+    &-lg {
+        @media all and (min-width: #{$min-lg + 'px'}) and (max-width: #{$start-lg + 'px'}) {
+            display: none !important;
+        }
+    }
+    
+    &-xl {
+        @media all and (min-width: #{$min-xl + 'px'}) {
+            display: none !important;
+        }
+    }
+}

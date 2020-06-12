@@ -1,0 +1,33 @@
+@import '../../sass/config/colors.scss';
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
+
+.slick-slide {
+    > div > div {
+        outline: none;
+    }
+}
+
+.dots-default {
+    .slick-dots {
+        bottom: 12px;
+        
+        li {
+            button {
+                &:before {
+                    color: $color-05;
+                    font-size: 20px;
+                    opacity: 1;
+                }
+            }
+
+            &.slick-active {
+                button {
+                    &:before {
+                        color: $color-01;
+                    }
+                }
+            }
+        }
+    }
+}

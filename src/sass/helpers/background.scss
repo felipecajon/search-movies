@@ -1,0 +1,15 @@
+.bg {
+    &-c {
+        &-01 {
+            background-color: $color-01;
+        }
+
+        &-02 {
+            background-color: $color-02;
+        }
+
+        &-03 {
+            background-color: $color-03;
+        }
+    }
+}

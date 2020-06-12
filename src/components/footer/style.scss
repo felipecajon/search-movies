@@ -1,0 +1,13 @@
+@import '../../sass/config/colors.scss';
+
+footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+
+    background-color: $color-03;
+    color: $color-04;
+
+    padding: 20px;
+}

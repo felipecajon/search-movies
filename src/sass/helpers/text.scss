@@ -1,0 +1,106 @@
+.font {
+    &-01 {
+        font-family: $font-01;
+    }
+
+    &-02 {
+        font-family: $font-02;
+    }
+
+    &-03 {
+        font-family: $font-03;
+    }
+
+    &-04 {
+        font-family: $font-04;
+    }
+
+    &-05 {
+        font-family: $font-05;
+    }
+}
+
+.fs {
+    &-01 {
+        font-size: $fs-01;
+    }
+
+    &-02 {
+        font-size: $fs-02;
+    }
+
+    &-03 {
+        font-size: $fs-03;
+    }
+
+    &-04 {
+        font-size: $fs-04;
+    }
+
+    &-05 {
+        font-size: $fs-05;
+    }
+
+    &-06 {
+        font-size: $fs-06;
+    }
+
+    &-07 {
+        font-size: $fs-07;
+    }
+
+    &-08 {
+        font-size: $fs-08;
+    }
+}
+
+.color {
+    &-01 {
+        color: $color-01;
+
+        &-light {
+            color: $color-01-light;
+        }
+    }
+
+    &-02 {
+        color: $color-02;
+    }
+
+    &-03 {
+        color: $color-03;
+    }
+
+    &-success {
+        color: $color-success;
+    }
+
+    &-danger {
+        color: $color-danger;
+    }
+
+    &-warning {
+        color: $color-warning;
+    }
+
+    &-info {
+        color: $color-info;
+    }
+
+}
+
+.t {
+    &-a {
+        &-l {
+            text-align: left;
+        }
+
+        &-c {
+            text-align: center;
+        }
+
+        &-r {
+            text-align: right;
+        }
+    }
+}

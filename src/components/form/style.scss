@@ -1,0 +1,33 @@
+@import '../../sass/config/colors.scss';
+@import '../../sass/config/fonts.scss';
+
+.form-group {
+    .control-label {
+        margin-bottom: 12px;
+        color: $color-01;
+        font-weight: bold;
+        display: inline-block;
+        width: 100%;
+    }
+
+    .help-block {
+        font-size: $fs-02;
+        margin-top: 4px;
+        display: inline-block;
+        color: $color-danger;
+    }
+
+    .form-group-checkbox {
+        display: flex;
+        align-items: center;
+
+        .control-label {
+            margin-bottom: 0;
+            margin-left: 12px;
+        }
+
+        label, input {
+            cursor: pointer;
+        }
+    }
+}

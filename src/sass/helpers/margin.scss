@@ -1,0 +1,42 @@
+@for $i from -20 through 80 {
+    .m-#{$i} {
+        margin-top: #{$i + 'px'};    
+    }
+
+    .m-t-#{$i} {
+        margin-top: #{$i + 'px'};    
+    }
+
+    .m-r-#{$i} {
+        margin-right: #{$i + 'px'};    
+    }
+
+    .m-b-#{$i} {
+        margin-bottom: #{$i + 'px'};    
+    }
+
+    .m-l-#{$i} {
+        margin-left: #{$i + 'px'};    
+    }
+
+    .m-t-#{$i} {
+        margin-top: #{$i + 'px'};    
+        margin-bottom: #{$i + 'px'};    
+    }
+}
+
+@for $i from -20 through 80 {
+    .m-t-#{$i}-sm {
+        @media all and (min-width: #{$min-sm + 'px'}) and (max-width: #{$start-sm + 'px'}) {
+            margin-top: #{$i + 'px'};
+        }
+    }
+}
+
+@for $i from -20 through 80 {
+    .m-t-#{$i}-xs {
+        @media all and (max-width: #{$min-sm + 'px'}) {
+            margin-top: #{$i + 'px'};
+        }
+    }
+}

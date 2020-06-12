@@ -1,0 +1,56 @@
+@font-face {
+    font-family: 'Gotham-Bold';
+    src: url('Gotham/Gotham-Bold/Gotham-Bold.eot');
+    src: url('Gotham/Gotham-Bold/Gotham-Bold.eot?#iefix') format('embedded-opentype'),
+    url('Gotham/Gotham-Bold/Gotham-Bold.ttf') format('truetype'),
+    url('Gotham/Gotham-Bold/Gotham-Bold.woff') format('woff'),
+    url('Gotham/Gotham-Bold/Gotham-Bold.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gotham-Book';
+    src: url('Gotham/Gotham-Book/Gotham-Book.eot');
+    src: url('Gotham/Gotham-Book/Gotham-Book.eot?#iefix') format('embedded-opentype'),
+    url('Gotham/Gotham-Book/Gotham-Book.ttf') format('truetype'),
+    url('Gotham/Gotham-Book/Gotham-Book.woff') format('woff'),
+    url('Gotham/Gotham-Book/Gotham-Book.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gotham-Medium';
+    src: url('Gotham/Gotham-Medium/Gotham-Medium.eot');
+    src: url('Gotham/Gotham-Medium/Gotham-Medium.eot?#iefix') format('embedded-opentype'),
+         url('Gotham/Gotham-Medium/Gotham-Medium.ttf') format('truetype'),
+         url('Gotham/Gotham-Medium/Gotham-Medium.woff') format('woff'),
+         url('Gotham/Gotham-Medium/Gotham-Medium.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Metropolis-SemiBold';
+    src: url('Metropolis/Metropolis-SemiBold/Metropolis-SemiBold.eot');
+    src: url('Metropolis/Metropolis-SemiBold/Metropolis-SemiBold.eot?#iefix') format('embedded-opentype'),
+         url('Metropolis/Metropolis-SemiBold/Metropolis-SemiBold.ttf') format('truetype'),
+         url('Metropolis/Metropolis-SemiBold/Metropolis-SemiBold.woff') format('woff'),
+         url('Metropolis/Metropolis-SemiBold/Metropolis-SemiBold.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Metropolis-Regular';
+    src: url('Metropolis/Metropolis-Regular/Metropolis-Regular.eot');
+    src: url('Metropolis/Metropolis-Regular/Metropolis-Regular.eot?#iefix') format('embedded-opentype'),
+         url('Metropolis/Metropolis-Regular/Metropolis-Regular.ttf') format('truetype'),
+         url('Metropolis/Metropolis-Regular/Metropolis-Regular.woff') format('woff'),
+         url('Metropolis/Metropolis-Regular/Metropolis-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  

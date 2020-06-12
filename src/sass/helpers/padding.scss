@@ -1,0 +1,31 @@
+@for $i from -20 through 40 {
+    .p-#{$i} {
+        padding: #{$i + 'px'};
+    }
+
+    .p-t-#{$i} {
+        padding-top: #{$i + 'px'};
+    }
+
+    .p-r-#{$i} {
+        padding-right: #{$i + 'px'};
+    }
+
+    .p-b-#{$i} {
+        padding-bottom: #{$i + 'px'};
+    }
+
+    .p-l-#{$i} {
+        padding-left: #{$i + 'px'};
+    }
+    
+    .p-tb-#{$i} {
+        padding-top: #{$i + 'px'};
+        padding-bottom: #{$i + 'px'};
+    }
+
+    .p-lr-#{$i} {
+        padding-left: #{$i + 'px'};
+        padding-right: #{$i + 'px'};
+    }
+}
