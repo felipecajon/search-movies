@@ -1,12 +1,12 @@
-import React, {Component}  from 'react';
-import * as yup from 'yup';
-import * as tools from '../../tools';
-import * as suggestions from '../../config.json';
-import { getMovie } from '../../services/api';
+import React, {Component}  from "react";
+import * as yup from "yup";
+import * as tools from "../../tools";
+import * as suggestions from "../../config.json";
+import { getMovie } from "../../services/api";
 import { getText  } from "../../language";
 
-import  {Formik, Form} from 'formik';
-import {MovieDetails} from '../../components/movieDetails';
+import  {Formik, Form} from "formik";
+import MovieDetails from "../../components/movieDetails";
 
 import { Input } from "../../components/form";
 import { Searching, Broom} from "../../icons";
@@ -16,36 +16,41 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
-import {color_01, color_04} from '../../sass/config/colors.scss';
+import {color_01, color_04} from "../../sass/config/colors.scss";
 
 export default class Home extends Component {
     state = {
         text: {},
-        movie: {}
+        movie: {},
+        touchedForm: false
     }
 
     componentDidMount () {
         this.setState({text: getText()});
         this.testParams();
-        // this.submitForm({title: 'The Lord of the rings'});
     }
 
     testParams = () => {
         const id = tools.getParamsURL('id');
+
         if (id) {
             this.submitForm({id});
-        } else {
-            this.setState({ movie: {} });
         }
     }
 
     submitForm = async (params) => {
+        const {movie} = this.setState;
         const response = await getMovie(params);
         this.setState({ movie: response.data });
+
+        if (!movie) {
+            this.setState({touchedForm: true});
+        }
     }
 
     clearSearch = () => {
         this.setState({ movie: {} });
+        this.setState({ touchedForm: false });
     }
 
     getSlideConfg = () => {
@@ -77,7 +82,7 @@ export default class Home extends Component {
     
     render () {
         const settingsSlider = this.getSlideConfg();
-        const { text, movie } = this.state;
+        const { text, movie, touchedForm} = this.state;
 
         let validationSchema = yup.object().shape({
             title: yup.string().required(text.error_required_field)
@@ -128,11 +133,22 @@ export default class Home extends Component {
                         </Col>
                     </Row>
 
-                    {movie.imdbID && (
-                        <div className="m-t-40">
-                            <MovieDetails movie={movie} />
-                        </div>
-                    )}
+                    {
+                        movie.imdbID ? (
+                            <div className="m-t-40">
+                                <MovieDetails movie={movie} />
+                            </div>
+                        ) : touchedForm ? (
+                            <div className="t-a-c">
+                                <p className="font-02 fs-06">
+                                    Ops! este filme a gente ainda não viu...
+                                </p>
+                                <p className="fs-05">
+                                    tente outro, por favor... <span className="font-02 fs-06">='(</span>
+                                </p>
+                            </div>
+                        ) : ''
+                    }
 
                     <div>
                         <p className="t-a-c font-01 fs-07 m-t-40 m-b-20">

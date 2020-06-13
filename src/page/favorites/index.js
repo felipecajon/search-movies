@@ -1,23 +1,20 @@
 import React, { Component } from 'react';
+import { connect } from "react-redux";
+import { addFavorites } from "../../actions";
 import { Link } from "react-router-dom";
-import {removeService} from '../../components/movieDetails';
+import {removeService} from '../../components/movieDetails/movieService';
 import { Searching, BrokenHeart} from '../../icons';
 import { color_01, color_04 } from '../../sass/config/colors.scss';
 
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import { bindActionCreators } from 'redux';
 
-export default class FavoritesPage extends Component {
-    state = {
-        favorites: JSON.parse(localStorage.getItem('searchMovie_favorites') || [])
-    }
-
+class FavoritesPage extends Component {
     removeMovie (movie) {
-        let {favorites} = this.state;
-        removeService(favorites, movie);
-        this.setState([...favorites]);
-        localStorage.setItem('searchMovie_favorites', JSON.stringify(favorites))
+        let {favorites, addFavorites} = this.props;
+        removeService(favorites, movie, addFavorites);
     }
 
     getFavoriteList (favorites) {
@@ -61,7 +58,7 @@ export default class FavoritesPage extends Component {
     }
 
     render() {
-        const { favorites } = this.state;
+        const { favorites } = this.props;
 
         return (
             <Container>
@@ -78,3 +75,11 @@ export default class FavoritesPage extends Component {
         )
     }
 }
+
+const mapStateProps = store => ({
+    favorites: store.state.favorites
+});
+
+const updatePros = updates => bindActionCreators({addFavorites}, updates);
+
+export default connect(mapStateProps, updatePros)(FavoritesPage)
