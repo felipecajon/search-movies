@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ArrowLeft_01 as ArrowLeft01, ArrowRight_01 as ArrowRight01 } from "../../../icons";
+import { ArrowLeft_01 as ArrowLeft01, ArrowRight_01 as ArrowRight01 } from "../../icons";
 import { color_03 } from "../../../sass/config/colors.scss";
 import './style.scss';
 

@@ -24,7 +24,7 @@ export async function getMovie (newParams) {
         configSearch.params.i = newParams.id;
     }
     
-    const baseUrl = `http://www.omdbapi.com/`;
+    const baseUrl = `https://www.omdbapi.com/`;
     const response = await axios.get(baseUrl, configSearch);
     
     loader.close();

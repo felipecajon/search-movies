@@ -1,15 +1,24 @@
 import React, {Component} from 'react';
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
+import { getText } from "../../language";
 import { addFavorites } from "../../actions";
 import { removeService } from "./movieService";
-import { StarHalf, Favorite, BrokenHeart} from '../../icons';
+import { StarHalf, Favorite, BrokenHeart} from '../icons';
 import { color_01, color_02, color_04 } from '../../sass/config/colors.scss';
 import { addToaster } from "../../components/toaster";
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 class MovieDetails extends Component {
+    state = {
+        text: {}
+    }
+    
+    componentDidMount () {
+        this.setState({text: getText()})
+    }
+
     createStarts (ratting) {
         let stars = [];
         let fullStarts = Math.round(ratting * 2);
@@ -36,6 +45,8 @@ class MovieDetails extends Component {
     }
     
     getRatting (rattings) {
+        const {text} = this.state;
+        
         if (rattings) {
             const item = rattings.filter(function(item){
                 return item.Source === "Internet Movie Database";         
@@ -46,7 +57,7 @@ class MovieDetails extends Component {
 
                 return (
                     <p className="d-flex v-center">
-                        <span className="font-02 p-t-8 m-r-12">Avaliação da Internet:</span> {this.createStarts(ratting)}
+                        <span className="font-02 p-t-8 m-r-12">{text.movie_details_internet_ratting}:</span> {this.createStarts(ratting)}
                     </p>
                 )
             }
@@ -54,6 +65,7 @@ class MovieDetails extends Component {
     }
 
     getActionButton (movie) {
+        const {text} = this.state;
         const {favorites} = this.props;
 
         const isFavorite = favorites.filter(function (item) {
@@ -63,23 +75,24 @@ class MovieDetails extends Component {
         if (isFavorite) {
             return (
                 <button data-testid="btn-remove-favorite" className="btn btn-primary m-t-20" onClick={() => this.removeMovie(movie)}>
-                    Desfavoritar <BrokenHeart fill={color_04} width={15} height={15} />
+                    {text.movie_details_disfavor} <BrokenHeart fill={color_04} width={15} height={15} />
                 </button>
             )
         } else {
             return(
                 <button data-testid="btn-add-favorite" className="btn btn-primary m-t-20" onClick={() => this.addMovie(movie)}>
-                    Favoritar <Favorite fill={color_04} width={15} height={15} />
+                    {text.movie_details_favor} <Favorite fill={color_04} width={15} height={15} />
                 </button>
             )
         }
     }
 
     addMovie (movie) {
+        const {text} = this.state;
         const {addFavorites, favorites} = this.props;
         const newMovie = {id: movie.imdbID, name: movie.Title};
         addFavorites([...favorites, newMovie])
-        addToaster({context: `O filme ${movie.Title} foi adicionado na sua lista de favoritos`, type: 'success'});
+        addToaster({context: `${text.movie_details_add_text_1} ${movie.Title} ${text.movie_details_add_text_2}`, type: 'success'});
     }
 
     removeMovie (movie) {
@@ -88,6 +101,7 @@ class MovieDetails extends Component {
     }
 
     render () {
+        const { text } = this.state;
         const { movie } = this.props;
 
         return (
@@ -110,25 +124,25 @@ class MovieDetails extends Component {
                         <div className="m-t-20">
                             {movie.Director !== 'N/A' && (
                                 <p>
-                                    <span className="font-02">Diretor:</span> {movie.Director}
+                                    <span className="font-02">{text.movie_details_director}:</span> {movie.Director}
                                 </p>
                             )}
     
                             {movie.Actors !== 'N/A' && (
                                 <p>
-                                    <span className="font-02">Atores:</span> {movie.Actors}
+                                    <span className="font-02">{text.movie_details_actor}:</span> {movie.Actors}
                                 </p>
                             )}
     
                             {movie.Year !== 'N/A' && (
                                 <p>
-                                    <span className="font-02">Ano:</span> {movie.Year}
+                                    <span className="font-02">{text.movie_details_year}:</span> {movie.Year}
                                 </p>
                             )}
     
                             {movie.Genre !== 'N/A' && (
                                 <p>
-                                    <span className="font-02">Genero:</span> {movie.Genre}
+                                    <span className="font-02">{text.movie_details_genre}:</span> {movie.Genre}
                                 </p>
                             )}
     

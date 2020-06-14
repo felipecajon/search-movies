@@ -1,6 +1,6 @@
 import React from 'react';
 import toaster from 'toasted-notes';
-import { Close } from "../../icons";
+import { Close } from "../icons";
 import { color_03 } from "../../sass/config/colors.scss";
 import './style.scss';
 

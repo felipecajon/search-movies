@@ -9,7 +9,7 @@ import  {Formik, Form} from "formik";
 import MovieDetails from "../../components/movieDetails";
 
 import { Input } from "../../components/form";
-import { Searching, Broom} from "../../icons";
+import { Searching, Broom} from "../../components/icons";
 
 import Slide from "../../components/slick";
 import Container from "react-bootstrap/Container";
@@ -28,6 +28,7 @@ export default class Home extends Component {
     componentDidMount () {
         this.setState({text: getText()});
         this.testParams();
+        // this.submitForm({title: 'Batman'});
     }
 
     testParams = () => {
@@ -113,18 +114,18 @@ export default class Home extends Component {
                                 <Form data-testid="form-search-movie">
                                     <Row className="h-center">
                                         <Col xs={12} md={4}>
-                                            <Input name="title" placeholder="Nome do filme..." dataTestId="input-search-movie"/>
+                                            <Input name="title" placeholder={text.home_form_input_placeholder} dataTestId="input-search-movie"/>
                                         </Col>
 
                                         <Col xs={12} md={4} lg={2} >
                                             <button type="submit" className="btn btn-block btn-primary" data-testid="button-search-movie">
-                                                <Searching width={15} height={15} fill={color_04} className="m-r-4" /> {text.home_search_buttons}
+                                                <Searching width={15} height={15} fill={color_04} className="m-r-4" /> {text.home_form_search}
                                             </button>
                                         </Col>
 
                                         <Col xs={12} md={4} lg={2} >
                                             <button type="reset" className="btn btn-block btn-outline-primary m-t-12-sm m-t-12-xs">
-                                                <Broom width={15} height={15} fill={color_01} className="m-r-4" /> Limpar Busca
+                                                <Broom width={15} height={15} fill={color_01} className="m-r-4" /> {text.home_form_clear}
                                             </button>
                                         </Col>
                                     </Row>
@@ -141,10 +142,10 @@ export default class Home extends Component {
                         ) : touchedForm ? (
                             <div className="t-a-c">
                                 <p className="font-02 fs-06">
-                                    Ops! este filme a gente ainda não viu...
+                                    {text.home_no_movie_1}
                                 </p>
                                 <p className="fs-05">
-                                    tente outro, por favor... <span className="font-02 fs-06">='(</span>
+                                {text.home_no_movie_2} <span className="font-02 fs-06">='(</span>
                                 </p>
                             </div>
                         ) : ''
@@ -152,7 +153,7 @@ export default class Home extends Component {
 
                     <div>
                         <p className="t-a-c font-01 fs-07 m-t-40 m-b-20">
-                            Sugestões de Filmes
+                            {text.home_suggestions_title}
                         </p>
 
                         <Slide settings={settingsSlider} />
