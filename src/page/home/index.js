@@ -110,14 +110,14 @@ export default class Home extends Component {
                     <Row className="m-t-40">
                         <Col xs={12}>
                             <Formik onReset={this.clearSearch} initialValues={initialValues} onSubmit={this.submitForm} validationSchema={validationSchema}>
-                                <Form>
+                                <Form data-testid="form-search-movie">
                                     <Row className="h-center">
                                         <Col xs={12} md={4}>
-                                            <Input name="title" placeholder="Nome do filme..."/>
+                                            <Input name="title" placeholder="Nome do filme..." dataTestId="input-search-movie"/>
                                         </Col>
 
                                         <Col xs={12} md={4} lg={2} >
-                                            <button type="submit" className="btn btn-block btn-primary">
+                                            <button type="submit" className="btn btn-block btn-primary" data-testid="button-search-movie">
                                                 <Searching width={15} height={15} fill={color_04} className="m-r-4" /> {text.home_search_buttons}
                                             </button>
                                         </Col>

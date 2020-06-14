@@ -23,13 +23,13 @@ class FavoritesPage extends Component {
                 <div>
                     <ul className="list-group m-t-20">
                         {
-                            favorites && favorites.map(e => (
+                            favorites && favorites.map((e, index) => (
                                 <li className="list-group-item list-group-item-action d-flex v-center h-space-between" key={e.id}>
                                     <Link to={`/movieDetails?id=${e.id}`}>
                                         {e.name}
                                     </Link>
 
-                                    <button className="btn btn-primary" onClick={ () => this.removeMovie({imdbID: e.id, Title: e.name}) }>
+                                    <button data-testid={`favorite-remove-item-${index}`} className="btn btn-primary" onClick={ () => this.removeMovie({imdbID: e.id, Title: e.name}) }>
                                         Desfavoritar <BrokenHeart fill={color_04} width={15} height={15} />
                                     </button>
                                 </li>
@@ -51,7 +51,7 @@ class FavoritesPage extends Component {
                         Você ainda não possui favoritos
                     </p>
 
-                    <Link to={'/'} className="btn btn-primary m-t-20" > Clique aqui e comece a favoritar agora mesmo!!! </Link>
+                    <Link data-testid="has-no-items" to={'/'} className="btn btn-primary m-t-20" > Clique aqui e comece a favoritar agora mesmo!!! </Link>
                 </div>
             )
         }

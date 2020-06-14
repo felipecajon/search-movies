@@ -17,7 +17,7 @@ export function Input (props) {
     return (
         <div className={`form-group ${props.classContainer || ''}`}>
             {getLabel(props.label || false, props)}
-            <Field type={props.type || 'text'} name={props.name} className={`form-control ${props.classInput || ''}`} placeholder={props.placeholder}/>
+            <Field type={props.type || 'text'} name={props.name} className={`form-control ${props.classInput || ''}`} placeholder={props.placeholder} data-testid={props.dataTestId}/>
             <ErrorMessage name={props.name} component="span" className="help-block color-danger" />
         </div>
     )

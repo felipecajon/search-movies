@@ -13,7 +13,7 @@ export default class Header extends Component {
                 </Link>
 
                 <div className="font-02 favorites">
-                    <Link to={'/favorites'}>
+                    <Link to={'/favorites'} data-testid="header-navigate-to-favorites">
                         Ver favoritos
                     </Link>
                 </div>

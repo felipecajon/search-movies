@@ -1,12 +1,10 @@
-import * as base_pt from './base_pt.json';
-
 export function getText () {
     const language = 'pt_BR';
     let library = {};
 
     if (!language || language === 'pt_BR') {
-        library = base_pt;
+        library = require('./base_pt.json');
     }
     
-    return library.default 
+    return library 
 }

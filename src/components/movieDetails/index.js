@@ -8,7 +8,6 @@ import { color_01, color_02, color_04 } from '../../sass/config/colors.scss';
 import { addToaster } from "../../components/toaster";
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import { Link } from 'react-router-dom';
 
 class MovieDetails extends Component {
     createStarts (ratting) {
@@ -63,13 +62,13 @@ class MovieDetails extends Component {
 
         if (isFavorite) {
             return (
-                <button className="btn btn-primary m-t-20" onClick={() => this.removeMovie(movie)}>
+                <button data-testid="btn-remove-favorite" className="btn btn-primary m-t-20" onClick={() => this.removeMovie(movie)}>
                     Desfavoritar <BrokenHeart fill={color_04} width={15} height={15} />
                 </button>
             )
         } else {
             return(
-                <button className="btn btn-primary m-t-20" onClick={() => this.addMovie(movie)}>
+                <button data-testid="btn-add-favorite" className="btn btn-primary m-t-20" onClick={() => this.addMovie(movie)}>
                     Favoritar <Favorite fill={color_04} width={15} height={15} />
                 </button>
             )
@@ -92,7 +91,7 @@ class MovieDetails extends Component {
         const { movie } = this.props;
 
         return (
-            <div className="">
+            <div data-testid="container-search-movie">
                 <Row>
                     <Col md={movie.Poster !== 'N/A' ? 9 : 12}>
                         {movie.Title !== 'N/A' && (
@@ -147,7 +146,7 @@ class MovieDetails extends Component {
     
                     {
                         movie.Poster !== 'N/A' && (
-                            <Col>
+                            <Col className="t-a-c">
                                 <img src={movie.Poster} alt={movie.Title} title={movie.Title}/>
                             </Col>
                         )
