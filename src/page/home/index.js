@@ -31,6 +31,11 @@ export default class Home extends Component {
         // this.submitForm({title: 'Batman'});
     }
 
+    componentWillUnmount () {
+        const {text} = this.state;
+        document.title = `${text.site_title}`;
+    }
+
     testParams = () => {
         const id = tools.getParamsURL('id');
 
@@ -50,8 +55,10 @@ export default class Home extends Component {
     }
 
     clearSearch = () => {
+        const {text} = this.state;
         this.setState({ movie: {} });
         this.setState({ touchedForm: false });
+        document.title = `${text.site_title}`;
     }
 
     getSlideConfg = () => {
@@ -84,6 +91,10 @@ export default class Home extends Component {
     render () {
         const settingsSlider = this.getSlideConfg();
         const { text, movie, touchedForm} = this.state;
+
+        if (movie.Title) {
+            document.title = `${text.site_title} - ${movie.Title}`;
+        }
 
         let validationSchema = yup.object().shape({
             title: yup.string().required(text.error_required_field)
