@@ -9,7 +9,5 @@ Node: 9.11.2
 - Test:    $npm test
 
 ## Demo
-<a href="https://search-movies-c588d.web.app/" target="_blank">
-    https://search-movies-c588d.web.app/
-</a>
+[go](https://search-movies-c588d.web.app/){:target="_blank"}
 
