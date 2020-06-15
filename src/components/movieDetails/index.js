@@ -21,9 +21,9 @@ class MovieDetails extends Component {
 
     createStarts (ratting) {
         let stars = [];
-        let fullStarts = Math.round(ratting * 2);
+        let fullStarts = Math.round(ratting);
         
-        for (let index = 2; index < 22; index++) {
+        for (let index = 0; index < 10; index++) {
             let colorFill = color_02;
 
             if (index < fullStarts) {
