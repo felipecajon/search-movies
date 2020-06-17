@@ -5,6 +5,18 @@ import App from "../App";
 
 afterEach(cleanup);
 
+it('Should appear not found movie', async () => {
+    const movieTitle = 'udhasiuh';
+    const { getByTestId } = render(<App/>);
+    const input = await waitForElement(() => getByTestId('input-search-movie'))
+    fireEvent.change(input, { target: { value: movieTitle } })
+    
+    const form = await waitForElement(() => getByTestId('form-search-movie'))
+    fireEvent.submit(form)
+    
+    const container = await waitForElement(() => getByTestId('no-movie'))
+});
+
 it('Should search some movie (The Lord of the Rings)', async () => {
     const movieTitle = 'The Lord of the Rings';
     const { getByTestId } = render(<App />);

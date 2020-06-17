@@ -172,7 +172,8 @@ class MovieDetails extends Component {
 }
 
 const mapStateProps = store => ({
-    favorites: store.state.favorites
+    favorites: store.state.favorites,
+    movie: store.state.movie
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({addFavorites}, dispatch)

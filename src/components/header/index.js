@@ -1,11 +1,13 @@
 import React, {Component} from 'react';
-
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import { addMovie } from "../../actions";
 import { getText } from "../../language";
 import { Logo } from '../icons';
 import './style.scss';
 import { Link } from 'react-router-dom';
 
-export default class Header extends Component {
+class Header extends Component {
     state = {
         text: {}
     }
@@ -14,12 +16,17 @@ export default class Header extends Component {
         this.setState({text: getText()})
     }
 
+    clearMovie () {
+        const {addMovie} = this.props;
+        addMovie({});
+    }
+
     render () {
         const { text } = this.state;
         
         return (
             <header className="d-flex v-center h-space-between">
-                <Link to={'/'} className="logo">
+                <Link to={'/'} className="logo" onClick={() => this.clearMovie()}>
                     <Logo with={50} height={50}/>
                 </Link>
 
@@ -31,4 +38,8 @@ export default class Header extends Component {
             </header>
         )
     }
-} 
+}
+
+const mapDispatchToProps = dispatch => bindActionCreators({addMovie}, dispatch)
+
+export default connect(null, mapDispatchToProps)(Header)

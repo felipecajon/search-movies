@@ -1,4 +1,8 @@
 import React, {Component}  from "react";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import { addMovie } from "../../actions";
+
 import * as yup from "yup";
 import * as tools from "../../tools";
 import * as suggestions from "../../config.json";
@@ -18,10 +22,9 @@ import Col from "react-bootstrap/Col";
 
 import {color_01, color_04} from "../../sass/config/colors.scss";
 
-export default class Home extends Component {
+class Home extends Component {
     state = {
         text: {},
-        movie: {},
         touchedForm: false
     }
 
@@ -45,18 +48,20 @@ export default class Home extends Component {
     }
 
     submitForm = async (params) => {
-        const {movie} = this.setState;
+        const {addMovie} = this.props;
         const response = await getMovie(params);
-        this.setState({ movie: response.data });
+        const newMovie = response.data;
+        addMovie(newMovie);
 
-        if (!movie) {
+        if (newMovie.Response === 'False') {
             this.setState({touchedForm: true});
         }
     }
 
     clearSearch = () => {
+        const {addMovie} = this.props;
         const {text} = this.state;
-        this.setState({ movie: {} });
+        addMovie({});
         this.setState({ touchedForm: false });
         document.title = `${text.site_title}`;
     }
@@ -90,7 +95,8 @@ export default class Home extends Component {
     
     render () {
         const settingsSlider = this.getSlideConfg();
-        const { text, movie, touchedForm} = this.state;
+        const { text, touchedForm} = this.state;
+        const { movie } = this.props;
 
         if (movie.Title) {
             document.title = `${text.site_title} - ${movie.Title}`;
@@ -148,10 +154,10 @@ export default class Home extends Component {
                     {
                         movie.imdbID ? (
                             <div className="m-t-40">
-                                <MovieDetails movie={movie} />
+                                <MovieDetails />
                             </div>
                         ) : touchedForm ? (
-                            <div className="t-a-c">
+                            <div data-testid="no-movie" className="t-a-c">
                                 <p className="font-02 fs-06">
                                     {text.home_no_movie_1}
                                 </p>
@@ -174,3 +180,11 @@ export default class Home extends Component {
         )
     }
 }
+
+const mapStateProps = store => ({
+    movie: store.state.movie
+});
+
+const mapDispatchToProps = dispatch => bindActionCreators({addMovie}, dispatch)
+
+export default connect(mapStateProps, mapDispatchToProps)(Home)
